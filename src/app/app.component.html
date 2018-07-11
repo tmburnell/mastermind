@@ -1,0 +1,25 @@
+<div class="board" fxLayout="column">
+  <mat-toolbar color="primary">
+    <h1>Mastermind</h1>
+  </mat-toolbar>
+  <div *ngFor="let guess of guesses; index as index" fxLayout="row" class="group">
+    <div fxFlex fxLayout="row" fxLayoutAlign="space-around center">
+      <div *ngFor="let g of guess.selections; index as i">
+        <button mat-mini-fab [ngClass]="g.value" (click)="updateSelection(guess.selections, i)"
+                [disabled]="index != guessCount">
+          <div *ngIf="g.value == ''" class="peg-hole"></div>
+        </button>
+      </div>
+    </div>
+    <div fxLayout="row wrap" fxLayoutGap="8px" class="results">
+      <div *ngFor="let r of guess.results; index as i">
+        <button mat-mini-fab [ngClass]="r">
+          <div *ngIf="r == 'INVALID'" class="peg-hole"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" [disabled]="!canSubmit()" (click)="submit()">Submit Answer</button>
+  <div *ngIf="msg" class="game-msg">{{msg}}</div>
+</div>
+

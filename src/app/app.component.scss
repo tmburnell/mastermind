@@ -1,0 +1,72 @@
+.board {
+  width: 300px;
+  background-image: url('/assets/Wood.jpg');
+  position: relative;
+}
+
+.mat-mini-fab {
+  &.RED {
+    background-color: red;
+  }
+  &.BLUE {
+    background-color: blue;
+  }
+  &.YELLOW {
+    background-color: yellow;
+  }
+  &.GREEN {
+    background-color: green;
+  }
+  &.ORANGE {
+    background-color: orange;
+  }
+  &.PURPLE {
+    background-color: purple;
+  }
+  &.INVALID {
+    background-color: transparent;
+  }
+  &.SIMIVALID {
+    background-color: white;
+  }
+  &.VALID {
+    background-color: black;
+  }
+
+  /deep/ &:not(.INVALID) .mat-button-wrapper  {
+    padding: 0;
+  }
+}
+
+.peg-hole {
+  border-radius: 50%;
+  background-color: black;
+  height: 5px;
+  width: 5px;
+}
+
+.group {
+  margin-bottom: 10px;
+}
+
+.results{
+  width: 60px;
+
+  .mat-mini-fab {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.game-msg {
+  position: absolute;
+  font-size: 45px;
+  top: 50%;
+  bottom: 50%;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
